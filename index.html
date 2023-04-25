@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Login</title>
+</head>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<body>
+    <header class="topBar">
+        <div id="topCont"></div>
+        <div id="topLog">
+            <button>
+                <i class="fa-thin fa-circle icones" id="minimize" onclick="minimize()"></i>
+            </button>
+            <button>
+                <i class="fa-thin fa-circle icones" id="maximize" onclick="maximize()"></i>
+            </button>
+            <button>
+                <i class="fa-thin fa-circle icones" id="close" onclick="window.close()"></i>
+            </button>
+
+        </div>
+    </header>
+    <main>
+        <aside class="conteudos">
+            <div id="box">
+                <h1>Nossos conteúdos</h1>
+                <ul class="lista">
+                    <li>Desenvolvimento web
+                        <ul class="itens">
+                            <li>HTML</li>
+                            <li>CSS</li>
+                            <li>JS</li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li>Apps desktop
+                        <ul class="itens">
+                            <li>Electron</li>
+                            <li>Pysimple GUI</li>
+                            <li>Tkinter</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+        <aside class="login">
+            <figure>
+                <img src="src/imgs/logotipo ¢'13.png" alt="Logo">
+            </figure>
+            <fieldset>
+                <h1 id="loginText">Login</h1>
+                <p>Faça login para ter acesso aos nossos conteudos</p>
+                <div class="form">
+                    <label>Email</label>
+                    <input type="email" name="email" id="email" autofocus placeholder="usuário"/>
+                    <label>Senha</label>
+                    <input type="password" name="senha" id="senha" placeholder="senha"/>
+                </div>
+                <div>
+                    <button id="login-button">Login</button>
+                </div>
+                <div>
+                    <label id="error-message"></label>
+                </div>
+            </fieldset>
+        </aside>
+    </main>
+    <script src="src/js/functions.js"></script>
+</body>
+</html>
