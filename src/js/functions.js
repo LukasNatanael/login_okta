@@ -3,12 +3,12 @@ document.querySelector("#login-button").addEventListener("click", () => {
     const password = document.getElementById("senha").value;
 
     const data = {
-      username: username,
-      password: password,
+    username: username,
+    password: password,
     };
 
     window.electron.login(data);
-  });
+});
 
 // ____________________________________________
 

@@ -5,22 +5,22 @@
 <title>Login</title>
 </head>
     <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/topbar.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 
 <body>
     <header class="topBar">
-        <div id="topCont"></div>
-        <div id="topLog">
-            <button>
-                <i class="fa-thin fa-circle icones" id="minimize" onclick="minimize()"></i>
+        <div id="topCont" style="width: 40%;"></div>
+        <div id="topLog" style="width: 60%;">
+            <button class="topIcon">
+                <i class="fa-thin fa-circle icones" id="minimize" onclick="minimizar()"></i>
             </button>
-            <button>
-                <i class="fa-thin fa-circle icones" id="maximize" onclick="maximize()"></i>
+            <button class="topIcon">
+                <i class="fa-thin fa-circle icones" id="maximize" onclick="maximizar()"></i>
             </button>
-            <button>
-                <i class="fa-thin fa-circle icones" id="close" onclick="window.close()"></i>
+            <button class="topIcon">
+                <i class="fa-thin fa-circle icones" id="close" onclick="fechar()"></i>
             </button>
-
         </div>
     </header>
     <main>
@@ -55,7 +55,7 @@
                 <p>Faça login para ter acesso aos nossos conteudos</p>
                 <div class="form">
                     <label>Email</label>
-                    <input type="email" name="email" id="email" autofocus placeholder="usuário"/>
+                    <input type="email" name="email" id="email" autofocus placeholder="email"/>
                     <label>Senha</label>
                     <input type="password" name="senha" id="senha" placeholder="senha"/>
                 </div>
@@ -68,6 +68,30 @@
             </fieldset>
         </aside>
     </main>
-    <script src="src/js/functions.js"></script>
+    <script>
+                const { ipcRenderer } = require('electron')
+        function minimizar() {
+            ipcRenderer.send('minimize', 'minimizando')
+        }
+        function maximizar() {
+            ipcRenderer.send('maximize', 'maximizando')
+        }
+        function fechar() {
+            ipcRenderer.send('close', 'fechando')
+        }
+        //_______________________________________________________________
+        document.querySelector("#login-button").addEventListener("click", () => {
+            const username = document.getElementById("email").value;
+            const password = document.getElementById("senha").value;
+
+            const data = {
+            username: username,
+            password: password,
+            };
+
+            // window.electron.login(data);
+            ipcRenderer.send('dados', data)
+        });
+    </script>
 </body>
 </html>

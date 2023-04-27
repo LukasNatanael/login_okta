@@ -5,28 +5,58 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
+    <link rel="stylesheet" href="src/styles/styles.css">
+    <link rel="stylesheet" href="src/styles/topbar.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
-    <h1>Home</h1>
+    <header class="topBar">
+        <!-- <div id="topCont"></div> -->
+        <div id="topLog" style="width: 100%;">
+            <button class="topIcon">
+                <i class="fa-thin fa-circle icones" id="minimize" onclick="minimizar()"></i>
+            </button>
+            <button class="topIcon">
+                <i class="fa-thin fa-circle icones" id="maximize" onclick="maximizar()"></i>
+            </button>
+            <button class="topIcon">
+                <i class="fa-thin fa-circle icones" id="close" onclick="fechar()"></i>
+            </button>
+        </div>
+    </header>
 
-    <div>
-      Congratulations <span id="username">test</span>, You've made it to a secure page using Okta.
-    </div>
-    
-    <div>
-      <button id="logout-button">Logout</button>
-    </div>
-    
+    <main>
+        <h1>Home</h1>
+        <div>
+            Congratulations <span id="username">test</span>, You've made it to a secure page using Okta.
+        </div>
+        <div>
+            <button id="logout-button">Logout</button>
+        </div>
+    </main>
+
     <script>
-      window.addEventListener('DOMContentLoaded', () => {
-        window.electron.getUser().then((user) => {
-          document.getElementById("username").innerHTML = `${user.profile.firstName} ${user.profile.lastName}`
+        const { ipcRenderer } = require('electron')
+        function minimizar() {
+            ipcRenderer.send('minimize', 'minimizando')
+        }
+        function maximizar() {
+            ipcRenderer.send('maximize', 'maximizando')
+        }
+        function fechar() {
+            ipcRenderer.send('close', 'fechando')
+        }
+        // _____________________________________________________________
+        window.addEventListener('DOMContentLoaded', () => {
+            window.electron.getUser().then((user) => {
+            document.getElementById("username").innerHTML = `${user.profile.firstName} ${user.profile.lastName}`
+            });
         });
-      });
-    
-      document.getElementById('logout-button').addEventListener('click', () => {
-        window.electron.logout();
-      });
+
+        document.getElementById('logout-button').addEventListener('click', () => {
+            // window.electron.logout();
+            ipcRenderer.send('logout')
+        });
     </script>
 </body>
 </html>

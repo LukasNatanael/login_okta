@@ -32,67 +32,12 @@ body {
     user-select: none;
     overflow: hidden;
     -webkit-app-region: no-drag;
-}
+    background-image: linear-gradient(to bottom, var(--preto-100), var(--preto-50));
 
-.icones {
-    font-family: fontAwesome;
-    color: #f1faee;
-    font-style: normal;
-    cursor: pointer;
-    -webkit-app-region: no-drag;
 }
 
 button {
-    background-color: transparent;
-    outline: none;
-    border: none;
-    width: fit-content;
-}
-
-.topBar {
-    display: flex;
-    /* justify-content: flex-end; */
-    /* align-items: center; */
-    /* -webkit-app-region: drag; */
-    /* display: none; */
-}
-
-
-#topLog {
-    width: 20px;
-    padding-bottom: .5em ;
     cursor: pointer;
-    display: flex;
-    justify-content: flex-end;
-    width: 60%;
-    column-gap: 1em;
-    padding: .5em .5em;
-    align-items: center;
-    
-    background-color: var(--preto-100);
-    -webkit-app-region: drag;
-    /* display: none; */
-    cursor: pointer;
-}
-
-
-#topCont {
-    background-color: var(--verde-50);
-    width: 40%;
-    -webkit-app-region: drag;
-    cursor: pointer;
-}
-
-#minimize {
-    color: var(--verde-50);
-}
-#maximize {
-    color: var(--amarelo);
-}
-
-#close {
-    width: 25px;
-    color: var(--vermelho)
 }
 
 main {
