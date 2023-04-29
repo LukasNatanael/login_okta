@@ -17,6 +17,7 @@ function mainWin() {
         },
     })
     win.loadURL(`file://${__dirname}/index.html`)
+    win.webContents.openDevTools()
 
     win.on('ready-to-show', () => {
         win.show()

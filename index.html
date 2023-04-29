@@ -74,5 +74,21 @@
         </aside>
     </main>
     <script src="src/js/functions.js"></script>
+    <script>
+        //_______________________________________________________________
+        document.querySelector("#login-button").addEventListener("click", () => {
+            const username = document.getElementById("email").value;
+            const password = document.getElementById("senha").value;
+
+            const data = {
+            username: username,
+            password: password,
+            };
+
+            // window.electron.login(data);
+            ipcRenderer.send('dados', data)
+        });
+
+    </script>
 </body>
 </html>

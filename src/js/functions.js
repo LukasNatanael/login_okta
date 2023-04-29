@@ -8,19 +8,6 @@ function maximizar() {
 function fechar() {
     ipcRenderer.send('close', 'fechando')
 }
-//_______________________________________________________________
-document.querySelector("#login-button").addEventListener("click", () => {
-    const username = document.getElementById("email").value;
-    const password = document.getElementById("senha").value;
-
-    const data = {
-    username: username,
-    password: password,
-    };
-
-    // window.electron.login(data);
-    ipcRenderer.send('dados', data)
-});
 
 //_______________________________________________________________
 function flashMessage(message) {
@@ -36,3 +23,5 @@ function flashMessage(message) {
 ipcRenderer.on("login-failed", (event, message) => {
     flashMessage(message)
 })
+
+//_______________________________________________________________
