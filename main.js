@@ -1,32 +1,32 @@
 const { app, BrowserWindow, ipcMain} = require('electron')
+const { event } = require('jquery')
 
 let win
 function mainWin() {
     win = new BrowserWindow({
         frame: false,
-        movable:true,
-        hasShadow: true,
-        fullscreenable:true,
-        center: true,
-        autoHideMenuBar:true,
-    
         minWidth: 1024,
         minHeight: 700,
+        show: false,
         webPreferences: {
-        //   preload: path.join(__dirname, "preload.js"),
-          nodeIntegration: true,
-          contextIsolation:false
+            nodeIntegration: true,
+            contextIsolation:false,
+            nodeIntegrationInSubFrames:true,
+
+
         },
     })
     win.loadURL(`file://${__dirname}/index.html`)
 
+    win.on('ready-to-show', () => {
+        win.show()
+    })
+
     ipcMain.on('minimize', (e, data) => {
-        console.log(data)
         win.minimize()
     })
 
     ipcMain.on('maximize', (e, data) => {
-        console.log(data)
         if (win.isMaximized()) {
             win.unmaximize()
         }
@@ -36,7 +36,6 @@ function mainWin() {
     })
 
     ipcMain.on('close', (e, data) => {
-        console.log(data)
         win.close()
     })
 }
@@ -58,28 +57,33 @@ ipcMain.on("dados", (event, data) => {
     authClient
         .signInWithCredentials(data)
         .then(function (res) {
-        // console.log(res);
+            // console.log(res);
 
-        if (res.data.status != "SUCCESS") {
-            event.reply("login-failed", err.errorSummary);
-            return;
-        }
+            if (res.data.status != "SUCCESS") {
+                event.reply("login-failed", err.errorSummary);
+                return;
+            }
 
-        user = res.user;
-        openHome();
+            user = res.user;
+            openHome();
         })
         .catch(function (err) {
-        console.log(err);
-        event.reply("login-failed", err.errorSummary);
+            // console.log(err);
+            event.reply("login-failed", 'Dados incorretos!');
         });
-    });
-
-    ipcMain.handle("user:get", (event) => {
-    return user;
 });
 
-ipcMain.on("logout", (event) => {
-    user = null;
+// ipcMain.handle('infos', (event) => {
+//     return user;
+
+// });
+
+ipcMain.on('dados-usuario', (e, data) => {
+    e.reply('recebeDados', user)
+})
+
+ipcMain.on("logout", (event, data) => {
+    user = data;
     openIndex();
   });
 
@@ -97,7 +101,7 @@ app.whenReady().then(() => {
     openIndex();
   
     app.on("activate", function () {
-      if (BrowserWindow.getAllWindows().length === 0) createWindow();
+      if (BrowserWindow.getAllWindows().length === 0) mainWin();
         });
 });
 

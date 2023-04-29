@@ -1,3 +1,14 @@
+const { ipcRenderer } = require('electron')
+function minimizar() {
+    ipcRenderer.send('minimize', 'minimizando')
+}
+function maximizar() {
+    ipcRenderer.send('maximize', 'maximizando')
+}
+function fechar() {
+    ipcRenderer.send('close', 'fechando')
+}
+//_______________________________________________________________
 document.querySelector("#login-button").addEventListener("click", () => {
     const username = document.getElementById("email").value;
     const password = document.getElementById("senha").value;
@@ -7,24 +18,21 @@ document.querySelector("#login-button").addEventListener("click", () => {
     password: password,
     };
 
-    window.electron.login(data);
+    // window.electron.login(data);
+    ipcRenderer.send('dados', data)
 });
 
-// ____________________________________________
+//_______________________________________________________________
+function flashMessage(message) {
+    document.getElementById("error-message").textContent = message;
+    document.getElementById("error-message").style.display = 'inline';
+    setTimeout(function() {
+        document.getElementById("error-message").textContent = '';
+        document.getElementById("error-message").style.display = 'none';
 
-const { ipcRenderer } = require('electron')
-
-function minimize() {
-    // ipcRenderer.send('name', 'saurav')
-    ipcRenderer.send('minimize', 'saurav')
+    }, 2000)
 }
-
-function maximize() {
-    // ipcRenderer.send('name', 'saurav')
-    ipcRenderer.send('maximize', 'saurav')
-}
-
-function close() {
-    // ipcRenderer.send('name', 'saurav')
-    ipcRenderer.send('close', 'saurav')
-}
+//_______________________________________________________________
+ipcRenderer.on("login-failed", (event, message) => {
+    flashMessage(message)
+})

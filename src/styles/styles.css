@@ -128,6 +128,7 @@ ul {
     display: flex;
     flex-direction: column;
     row-gap: .5em;
+    padding: 0 .8em;
 }
 
 #logo {
@@ -140,11 +141,11 @@ ul {
 
 fieldset {
     border: 1px solid var(--branco-50);
-    padding: 2%;
+    /* padding: 2%; */
     display: flex;
     flex-direction: column;
     justify-content: center;
-    row-gap: 1.5em;
+    row-gap: 1em;
     width: 29em;
     height: 60%;
 }
@@ -179,10 +180,12 @@ input {
     border: 2px solid var(--vermelho);
     font-weight: bold;
     color: var(--branco-50);
+    /* padding: .5em 38%; */
     padding: .5em 30%;
     display: flex;
-    margin: auto;
+    /* margin: auto; */
     cursor: pointer;
+    
 
     transition: background .8s;
 }
@@ -226,4 +229,46 @@ input {
     font-size: 5em;
     font-weight: bolder;
     line-height: 1em;
+}
+
+#social {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    margin: 0 auto;
+    gap: 1.5em;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    font-size: 2em;
+}
+
+#socIcons > i {
+    font-size: 2em;
+    margin: 0 .3em;
+    cursor: pointer;
+}
+
+
+#github {
+    transition: color .6s;
+}
+#github:hover {
+    color: var(--vermelho);
+}
+
+#linkedin {
+    transition: color .6s;
+}
+#linkedin:hover {
+    color: #0077b6;
+}
+
+#error-message {
+    display: none;
+    margin-left: 56%;
+    /* color: var(--vermelho); */
 }

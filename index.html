@@ -6,8 +6,8 @@
 </head>
     <link rel="stylesheet" href="src/styles/styles.css">
     <link rel="stylesheet" href="src/styles/topbar.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <script src="https://kit.fontawesome.com/fd306b56dd.js" crossorigin="anonymous"></script>
 <body>
     <header class="topBar">
         <div id="topCont" style="width: 40%;"></div>
@@ -52,47 +52,27 @@
             </figure>
             <fieldset>
                 <div id="logBack"></div>
-                <!-- <h1 id="loginText">Login</h1> -->
                 <p>Faça login para ter acesso aos nossos conteudos</p>
                 <div class="form">
-                    <label>Email</label>
-                    <input type="email" name="email" id="email" autofocus placeholder="email"/>
+                    <label>Email <span id="error-message">Dados incorretos!</span></label>
+                    <input type="email" name="email" id="email" autofocus placeholder="email" required/>
                     <label>Senha</label>
-                    <input type="password" name="senha" id="senha" placeholder="senha"/>
+                    <input type="password" name="senha" id="senha" placeholder="senha" required/>
                 </div>
-                <div>
+                <div id="social">
+                    <div id="socIcons">
+                        <a href="https://github.com/LukasNatanael" target="_blank">
+                            <i class="fa-brands fa-github" id="github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/lucas-natanael-524885214/" target="_blank">
+                            <i class="fa-brands fa-linkedin" id="linkedin"></i>
+                        </a>
+                    </div>
                     <button id="login-button">Login</button>
-                </div>
-                <div>
-                    <label id="error-message"></label>
                 </div>
             </fieldset>
         </aside>
     </main>
-    <script>
-                const { ipcRenderer } = require('electron')
-        function minimizar() {
-            ipcRenderer.send('minimize', 'minimizando')
-        }
-        function maximizar() {
-            ipcRenderer.send('maximize', 'maximizando')
-        }
-        function fechar() {
-            ipcRenderer.send('close', 'fechando')
-        }
-        //_______________________________________________________________
-        document.querySelector("#login-button").addEventListener("click", () => {
-            const username = document.getElementById("email").value;
-            const password = document.getElementById("senha").value;
-
-            const data = {
-            username: username,
-            password: password,
-            };
-
-            // window.electron.login(data);
-            ipcRenderer.send('dados', data)
-        });
-    </script>
+    <script src="src/js/functions.js"></script>
 </body>
 </html>

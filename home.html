@@ -5,13 +5,12 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="src/styles/styles.css">
     <link rel="stylesheet" href="src/styles/topbar.css">
+    <link rel="stylesheet" href="src/styles/home.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
     <header class="topBar">
-        <!-- <div id="topCont"></div> -->
         <div id="topLog" style="width: 100%;">
             <button class="topIcon">
                 <i class="fa-thin fa-circle icones" id="minimize" onclick="minimizar()"></i>
@@ -47,15 +46,17 @@
             ipcRenderer.send('close', 'fechando')
         }
         // _____________________________________________________________
-        window.addEventListener('DOMContentLoaded', () => {
-            window.electron.getUser().then((user) => {
-            document.getElementById("username").innerHTML = `${user.profile.firstName} ${user.profile.lastName}`
-            });
-        });
 
+        ipcRenderer.send('dados-usuario')
+
+        window.addEventListener('DOMContentLoaded', () => {
+            ipcRenderer.once('recebeDados', (e, data) => {
+                document.querySelector('#username').textContent = `${data.profile.firstName} ${data.profile.lastName}`
+            })
+        })
+        // _____________________________________________________________
         document.getElementById('logout-button').addEventListener('click', () => {
-            // window.electron.logout();
-            ipcRenderer.send('logout')
+            ipcRenderer.send('logout', null)
         });
     </script>
 </body>
