@@ -1,0 +1,187 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+    /* Paletas */
+
+    --preto-100: #232323;
+    --preto-50: #273140;
+
+    --verde-50: #588157;
+    --verde-100: #344E41;
+    --vermelho-50: #E63946;
+    --vermelho-100: #cc3441;
+    --marrom: #BFB29F;
+    --amarelo: #FFBE0B;
+    --azul-50: #4cc9f0;
+
+    --branco-50: #f1faee;
+
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+main {
+    display: flex;
+    height: 100vh;
+    height: 100%;
+    padding-top: 2em;
+}
+
+.container {
+    width: 100%;
+}
+
+.box {
+    height: 100vh;
+    padding: 2.8em 1em;
+    z-index: 2;
+
+    background: linear-gradient(to bottom, var(--preto-100), var(--preto-50));
+}
+
+/* Costumizando CAIXAS DE CONTEÚDO */
+
+/* ____________________________BOX HOME__________________________ */
+#boxHome {
+    background-color: #8ecae6;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+#logo {
+    width: 10em;
+}
+
+#contentHome {
+    width: 100%;
+    height: 100%;
+    padding: 1em 0;
+    /* background: linear-gradient(to bottom, var(--preto-100), var(--preto-50)); */
+}
+
+#boxBoasVindas {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#contentUser {
+    font-size: 5em;
+
+}
+
+/* ____________________________ VIDEOS ___________________________*/
+
+::-webkit-scrollbar {
+    background-color: transparent;
+    width: .5em;
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--vermelho-50);
+}
+::-webkit-scrollbar-track {
+    background-color: transparent;
+
+}
+
+.boxVideos {
+    /* width: 100%; */
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 2em 2em;
+    gap: 0 1em;
+    overflow-y: scroll;
+    margin: auto;
+}
+
+.tumbVideos {
+    background-color: var(--preto-100);
+    width: 12em;
+    height: 8em;
+
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    align-items: center;
+    
+    transition: transform .5s, padding .5s;
+}
+
+.tumbVideos:hover {
+    transform: scale(1.2);
+    border: 1px solid var(--vermelho-50);
+    /* z-index: 1; */
+    /* padding-bottom: 1em ; */
+}
+
+.videoBox {
+    border: transparent;
+    background-color: var(--branco-50);
+    width: 86%;
+    height: 65%;
+    border: transparent;
+    /* margin-bottom: 5%; */
+    
+    transition: transform .5s;
+}
+
+.interagir {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    /* padding: 8px 0; */
+    font-size: 10px;
+}
+
+.direita {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.interagir > button {
+    cursor: pointer;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    color: var(--branco-50);
+}
+
+.joia, #favorite {
+    display: none;
+}
+
+label i{
+    font-size: 2em;
+    cursor: pointer;
+}
+
+.joia:checked ~ i{
+    color: var(--azul-50);
+}
+
+
+.esquerda label {
+    margin: 0 1em;
+}
+
+#favorite:checked ~ i{
+    color: var(--amarelo);
+}
+
+/* ____________________________________________________________ */

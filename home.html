@@ -5,16 +5,17 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Home</title>
-    <link rel="stylesheet" href="src/styles/topbarHome.css">
+    <link rel="stylesheet" href="src/styles/topbar.css">
+    <link rel="stylesheet" href="src/styles/index.css">
     <link rel="stylesheet" href="src/styles/sidebar.css">
     <script src="https://kit.fontawesome.com/fd306b56dd.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header class="topBar">
         <div id="topLog" style="width: 100%;">
-            <div id="topLeft">
-                <button class="topIcon">
-                    <i class="fa-solid fa-bars icones home" id="menuBtn"></i>
+            <div>
+                <button id="sibarbarBurguer" class="topIcon">
+                    <i class="fa-solid fa-bars icones"></i>
                 </button>
             </div>
             <div id="topRight">
@@ -30,188 +31,236 @@
             </div>
         </div>
     </header>
-    <aside class="sideBar">
-        <header>
-            <i class="fa-solid fa-circle-user icones" id="sidebarUser"></i>
-            <button id="sidebarHomeBtn" class="home">
-                <i class="fa-solid fa-bars icones"></i>
-            </button>
-        </header>
-        <div class="sideBarContent">
-            <div class="sidebarButtons">
-                <button>
+    <main>
+        <!-- ADD class ESCONDER -->
+        <aside class="sideBar esconder">
+            <i class="fa-solid fa-circle-user icones" id="userIcon"></i>
+            <div class="sideBarButtons">
+                <a href="#boxHome">
                     <span>Home</span>
                     <i class="fa-solid fa-home"></i>
-                </button>
-            </div>
-            <div class="sidebarButtons">
-                <button>
+                </a>
+                <a href="#boxCursos">
                     <span>Cursos</span>
                     <i class="fa-solid fa-tv"></i>
-                </button>
-            </div>
-            <div class="sidebarButtons">
-                <button>
+                </a>
+                <a href="#boxCertificados">
                     <span>Certificados</span>
                     <i class="fa-solid fa-certificate"></i>
-                </button>
-            </div>
-            <div class="sidebarButtons">
-                <button>
+                </a>
+                <a href="#boxTestes">
                     <span>Testes</span>
                     <i class="fa-solid fa-file-lines icones"></i>
-                </button>
-            </div>
-            <div class="sidebarButtons">
-                <button>
+                </a>
+                <a href="#boxConfig">
                     <span>Configurações</span>
                     <i class="fa-solid fa-gear icones"></i>
-                </button>
-            </div>
-            <div class="sidebarButtons">
+                </a>
                 <button id="logout-button">
                     <span>Sair</span>
                     <i class="fa-solid fa-right-from-bracket icones"></i>
                 </button>
             </div>
-        </div>
-    </aside>
-    <main>
-        <figure id="logoArea">
-            <img src="src/imgs/logotipo ¢'13.png" alt="logo" id="logo">
-        </figure>
-        <section class="displayContent">
-            <div id="boxBoasVindas">
-                <i class="fa-solid fa-circle-user icones" id="contentUser"></i>
-                <!-- <h1 id="nome"><span id="username"></h1> -->
-                <h3 id="boas-vindas">Olá novamente, <span id="username"></span>!</h3>
-            </div>
-            <section id="contentVideos">
-                <div class="tumbVideos">
-                    <button class="box"></button>
-                    <div class="interagir">
-                        <button class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
-                        </button>
-                        <button class="direita">
-                            <i class="fa-solid fa-star direita"></i>
-                        </button>
+        </aside>
+        <aside class="container">
+            <section class="box" id="boxHome">
+                <figure>
+                    <img src="src/imgs/logotipo ¢'13.png" alt="logotipo" id="logo">
+                </figure>
+                <section id="contentHome">
+                    <div id="boxBoasVindas">
+                        <i class="fa-solid fa-circle-user " id="contentUser"></i>
+                        <!-- <h1 id="nome"><span id="username"></h1> -->
+                        <h3 id="boas-vindas">Olá novamente, <span id="username"></span>!</h3>
                     </div>
-                </div>
-                
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
+                    <div class="boxVideos">
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
+                        
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
+                        
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
+                        
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="tumbVideos">
+                            <button class="videoBox"></button>
+                            <div class="interagir">
+                                <div class="esquerda">
+                                    <label for="like" id="likeLabel">
+                                        <input type="radio" name="dedo" id="like" class="joia">
+                                        <i class="fa-solid fa-thumbs-up"></i>
+                                    </label>
+                                    <label for="dislike" id="dislikeLabel">
+                                        <input type="radio" name="dedo" id="dislike" class="joia">
+                                        <i class="fa-solid fa-thumbs-down"></i>
+                                    </label>
+                                </div>
+                                <div class="direita">
+                                    <label for="favorite" class="star" id="starLabel">
+                                        <input type="checkbox" id="favorite">
+                                        <i class="fa-solid fa-star direita" id="estrela"></i>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
 
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
-                        </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
-                        </div>
                     </div>
-                </div>
-
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
-                        </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
-                        </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
-                        </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="tumbVideos">
-                    <div class="box"></div>
-                    <div class="interagir">
-                        <div class="esquerda">
-                            <i class="fa-solid fa-thumbs-up"></i>
-                            <i class="fa-solid fa-thumbs-down"></i>
-                        </div>
-                        <div class="direita">
-                            <i class="fa-solid fa-star direita"></i>
-                        </div>
-                    </div>
-                </div>
-
+                </section>
             </section>
-        </section>
+            <section class="box" id="boxCursos">CURSOS</section>
+            <section class="box" id="boxCertificados">CERTIFICADOS</section>
+            <section class="box" id="boxTestes">TESTES</section>
+            <section class="box" id="boxConfig">CONFIGURAÇÕES</section>
+        </aside>
     </main>
     <script src="src/js/functions.js"></script>
     <script>
-        // _____________________________________________________________
-        
-        let menuBtn = document.querySelector('.home')
-        let sideBar = document.querySelector('.sideBar')
-        let sidebarHomeBtn = document.querySelector('#sidebarHomeBtn')
-
-        menuBtn.addEventListener('click', () => {
-            menuBtn.style.display = 'none'
-            sideBar.style.display = 'flex'
-        })
-        
-        sidebarHomeBtn.addEventListener('click', () => {
-            menuBtn.style.display = 'flex'
-            sideBar.style.display = 'none'
-        })
-
         // _____________________________________________________________
         ipcRenderer.send('dados-usuario')
 
@@ -224,6 +273,22 @@
         document.getElementById('logout-button').addEventListener('click', () => {
             ipcRenderer.send('logout', null)
         });
+        
+        // _____________________________________________________________
+        let hamburguerBtn = document.querySelector('#sibarbarBurguer')
+        let sidebar = document.querySelector('.sideBar')
+        let container = document.querySelector('.container')
+
+        hamburguerBtn.addEventListener('click', () => {
+            if (sidebar.classList.contains('esconder')) {
+                sidebar.classList.remove('esconder')
+                container.style.marginLeft = '17em'
+            }
+            else {
+                sidebar.classList.add('esconder')
+                container.style.marginLeft = '0em'
+            }
+        })
     </script>
 </body>
 </html>

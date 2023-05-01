@@ -19,9 +19,5 @@ function flashMessage(message) {
 
     }, 2000)
 }
-//_______________________________________________________________
-ipcRenderer.on("login-failed", (event, message) => {
-    flashMessage(message)
-})
 
 //_______________________________________________________________

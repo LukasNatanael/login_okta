@@ -24,11 +24,14 @@
 }
 
 body {
+    display: flex;
+    flex-direction: column;
     height: 100vh;
     width: 100vw;
+    color: var(--branco-50);
     user-select: none;
-    -webkit-app-region: no-drag;
     overflow: hidden;
+    -webkit-app-region: no-drag;
 }
 
 .icones {
@@ -47,10 +50,7 @@ body {
 }
 
 .topBar {
-    position: fixed;
-    z-index: 1;
-    width: 100%;
-
+    display: flex;
 }
 
 
@@ -59,7 +59,7 @@ body {
     padding-bottom: .5em ;
     cursor: pointer;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
     /* width: 60%; */
     column-gap: 1em;
     padding: .5em .5em;
@@ -79,11 +79,6 @@ body {
     cursor: pointer;
 }
 
-#topRight {
-    display: flex;
-    column-gap: 1em;
-}
-
 #minimize {
     color: var(--verde-50);
 }
@@ -95,4 +90,3 @@ body {
     width: 25px;
     color: var(--vermelho)
 }
-
