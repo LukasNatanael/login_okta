@@ -6,7 +6,7 @@ function mainWin() {
     win = new BrowserWindow({
         frame: false,
         minWidth: 1024,
-        minHeight: 700,
+        minHeight: 750,
         show: false,
         webPreferences: {
             nodeIntegration: true,
