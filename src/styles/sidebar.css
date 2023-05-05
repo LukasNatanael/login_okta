@@ -46,6 +46,14 @@
     text-decoration: none;
 }
 
+.sideBarButtons span {
+    font-size: 1.5em;
+}
+.sideBarButtons a {
+    display: flex;
+    align-items: center;
+}
+
 #logout-button {
     display: flex;
     width: 15em;

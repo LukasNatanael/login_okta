@@ -56,10 +56,12 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    justify-content: space-around;
 }
 
 #logo {
     width: 10em;
+    padding-top: 5%;
 }
 
 #contentHome {
@@ -150,7 +152,7 @@ main {
     justify-content: space-around;
     align-items: center;
     /* padding: 8px 0; */
-    font-size: 10px;
+    font-size: 8px;
 }
 
 .direita {
@@ -194,7 +196,75 @@ label i{
 
 #boxConfig {
     width: 100%;
-    height: 100%;
-    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    /* padding: 1em 0; */
+}
+
+#contentConfig {
+    /* background-color: #4cc9f0; */
+    width: 100%;
+    height: 50%;
+    padding: 1em;
+}
+
+#contentConfig > i{
+    display: flex;
+    justify-content: center;
+    font-size: 8em;
+}
+
+.logo-box{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.titulo {
+    font-size: 2em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: .5em;
+}
+.titulo > i {
+    font-size: 2em;
+}
+
+form {
+    display: flex;
+    align-items: center;
+    column-gap: 2em;
+}
+
+label {
+    font-size: 1.5em;
+}
+
+input {
+    /* width: 80%; */
+    padding: .5em;
+    background-color: transparent;
+    border: 2px solid var(--branco-50);
+}
+
+:focus {
+    outline: none;
+}
+
+#divEsquerda{
+    display: flex;
+    align-self: flex-start;
+    flex-direction: column;
+    width: 50%;
+}
+#divDireita{
+    display: flex;
+    align-self: flex-end;
+    flex-direction: column;
+    width: 50%;
+
 }
 /* ____________________________________________________________ */
